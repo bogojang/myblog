@@ -1,0 +1,7 @@
+{
+  "name": "blog-verify",
+  "private": true,
+  "type": "module",
+  "scripts": { "verify": "node verify.mjs" },
+  "devDependencies": { "playwright": "^1.48.0" }
+}

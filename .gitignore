@@ -1,0 +1,21 @@
+# 비밀값
+.env
+.env.*
+*serviceAccount*.json
+*service-account*.json
+
+# 의존성·테스트 산출물
+node_modules/
+tests/node_modules/
+tests/screenshots/
+
+# 배포 도구
+.vercel/
+
+# OS 파일
+.DS_Store
+Thumbs.db
+
+# 편집기
+.vscode/
+.idea/

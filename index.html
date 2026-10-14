@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 업무 학습 일지</title>
+
+  <!-- 글꼴 CSS: 내용이 수시로 갱신될 수 있어(버전 2 최신 유지) 고정 해시를 쓸 수 없으므로 SRI를 생략한다. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&amp;display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde@2.18.0/dist/easymde.min.css" integrity="sha384-uqD/OYCNfagd1EgXMgl5QedTD5K+B3e9b8GYo/41t7+Serf7CBxvl+tU1gHd+qd1" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js" integrity="sha384-QsSpx6a0USazT7nK7w8qXDgpSAPhFsb2XtpoLFQ5+X2yFN6hvCKnwEzN8M5FWaJb" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js" integrity="sha384-cwS6YdhLI7XS60eoDiC+egV0qHp8zI+Cms46R0nbn8JrmoAzV9uFL60etMZhAnSu" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/easymde@2.18.0/dist/easymde.min.js" integrity="sha384-KtB38COewxfrhJxoN2d+olxJAeT08LF8cVZ6DQ8Poqu89zIptqO6zAXoIxpGNWYE" crossorigin="anonymous"></script>
+  <script defer type="module" src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-title" href="#/">
+        <span class="site-title-main">AI 업무 학습 일지</span>
+        <span class="site-subtitle">20년 차 개발자의 AI 업무 기록</span>
+      </a>
+      <nav id="main-nav" aria-label="주 메뉴">
+        <a class="nav-link" data-route="home" href="#/">소개</a>
+        <a class="nav-link" data-route="ai" href="#/ai">AI 정보</a>
+        <a class="nav-link" data-route="posts" href="#/posts">글 목록</a>
+        <a class="nav-link" data-route="write" href="#/write">글 쓰기</a>
+        <a class="nav-link" data-route="settings" href="#/settings">설정</a>
+        <a class="nav-link" data-route="login" href="#/login" hidden>로그인</a>
+        <button class="nav-link nav-logout" id="logout-btn" type="button" hidden>로그아웃</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- P7. 소개 -->
+    <section class="page" id="page-home" hidden>
+      <section class="home-hero" aria-labelledby="home-heading">
+        <p class="home-name">[작성 필요: 이름]</p>
+        <h1 id="home-heading">20년 차 개발자, AI를 업무에 쓰며 배운 것을 기록합니다.</h1>
+        <!-- 프로필 사진: [작성 필요: https 이미지 주소, 선택]. 사용하려면 여기에 <img src="https://..." alt="프로필 사진" class="profile-photo" width="120" height="120">를 추가한다. -->
+      </section>
+
+      <section class="home-section" aria-labelledby="home-about-title">
+        <h2 id="home-about-title">나는 누구인가</h2>
+        <p>개발자로 일한 지 20년이 되었습니다. [작성 필요: 주로 해 온 분야] 분야에서 [작성 필요: 대표적인 역할]을 맡아 왔고, 지금은 [작성 필요: 현재 하는 일]을 하고 있습니다.</p>
+        <p>[작성 필요: 경력에서 가장 중요하게 생각하는 원칙이나 경험 1~2문장]</p>
+      </section>
+
+      <section class="home-section" aria-labelledby="home-skills-title">
+        <h2 id="home-skills-title">주로 다루는 기술</h2>
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th scope="col">묶음</th>
+              <th scope="col">내용</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">[작성 필요: 예) 백엔드]</th>
+              <td>[작성 필요]</td>
+            </tr>
+            <tr>
+              <th scope="row">[작성 필요: 예) 프론트엔드]</th>
+              <td>[작성 필요]</td>
+            </tr>
+            <tr>
+              <th scope="row">[작성 필요: 예) 데이터]</th>
+              <td>[작성 필요]</td>
+            </tr>
+            <tr>
+              <th scope="row">[작성 필요: 예) 인프라]</th>
+              <td>[작성 필요]</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="home-section" aria-labelledby="home-why-title">
+        <h2 id="home-why-title">왜 AI를 기록하나요?</h2>
+        <p>오랫동안 개발을 해 왔기에 새로운 도구가 나올 때마다 "정말 업무에 도움이 되는가"를 따져 보게 됩니다. 이 블로그에는 직접 써 보고 확인한 내용만 적습니다.</p>
+        <p>잘 된 점뿐 아니라 시행착오와 한계도 함께 남겨, 같은 일을 하는 분들이 시간을 아낄 수 있도록 하는 것이 목표입니다.</p>
+      </section>
+
+      <section class="home-section" aria-labelledby="home-offer-title">
+        <h2 id="home-offer-title">이 블로그에서 볼 수 있는 것</h2>
+        <ul class="offer-list">
+          <li>
+            <strong>AI 도구</strong>: 직접 써 본 AI 도구의 후기와 비교
+            <a class="btn-link" href="#/ai">AI 정보 보기</a>
+          </li>
+          <li>
+            <strong>AI 개발</strong>: AI를 활용한 개발 방법과 구현 기록
+            <a class="btn-link" href="#/posts">글 목록 보기</a>
+          </li>
+          <li>
+            <strong>업무 자동화</strong>: 반복되는 업무에 AI를 적용한 사례
+            <a class="btn-link" href="#/posts">글 목록 보기</a>
+          </li>
+          <li>
+            <strong>개발 경력 이야기</strong>: 20년 동안 배운 것 중 AI 시대에도 통하는 것들
+            <a class="btn-link" href="#/posts">글 목록 보기</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="home-section" aria-labelledby="home-recent-title">
+        <h2 id="home-recent-title">최근 글</h2>
+        <ul id="home-recent-list" class="recent-list"></ul>
+        <p id="home-recent-empty" class="empty-message" hidden>아직 작성한 글이 없습니다.</p>
+        <p><a href="#/posts">전체 글 보기</a></p>
+      </section>
+
+      <section class="home-section" aria-labelledby="home-contact-title">
+        <h2 id="home-contact-title">연락·링크</h2>
+        <!-- 외부 링크는 https 주소만 사용하고 target="_blank" rel="noopener noreferrer"를 붙인다. 공개하지 않을 항목은 줄을 지운다(최대 4개). -->
+        <ul class="contact-list">
+          <li>GitHub: [작성 필요: https 주소 또는 삭제]</li>
+          <li>블로그·SNS: [작성 필요: https 주소 또는 삭제]</li>
+          <li>이메일: [작성 필요: 공개해도 되는 경우만, 글자 링크로 표시]</li>
+        </ul>
+      </section>
+    </section>
+
+    <!-- P8. AI 정보 -->
+    <section class="page" id="page-ai" hidden>
+      <section class="home-section" aria-labelledby="ai-heading">
+        <h1 id="ai-heading">AI 정보</h1>
+        <p>개발자의 실무 관점에서 AI를 정리하는 페이지입니다. 직접 써 보고 확인한 내용을 중심으로 적고, 자세한 이야기는 글로 남깁니다.</p>
+      </section>
+
+      <section class="home-section" aria-labelledby="ai-tools-title">
+        <h2 id="ai-tools-title">내가 쓰는 AI 도구</h2>
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th scope="col">도구</th>
+              <th scope="col">용도</th>
+              <th scope="col">한 줄 평</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>[작성 필요]</td>
+              <td>[작성 필요]</td>
+              <td>[작성 필요]</td>
+            </tr>
+            <tr>
+              <td>[작성 필요]</td>
+              <td>[작성 필요]</td>
+              <td>[작성 필요]</td>
+            </tr>
+            <tr>
+              <td>[작성 필요]</td>
+              <td>[작성 필요]</td>
+              <td>[작성 필요]</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-note">평가는 [작성 필요: 확인한 날짜] 기준이며, 도구는 자주 바뀌므로 최신 정보는 공식 문서를 확인해 주세요.</p>
+      </section>
+
+      <section class="home-section" aria-labelledby="ai-topics-title">
+        <h2 id="ai-topics-title">다루는 주제</h2>
+        <div class="topic-grid">
+          <article class="topic-card">
+            <h3>AI 도구</h3>
+            <p>직접 써 본 AI 도구의 후기와 비교를 정리합니다. 무엇이 좋았고 어디서 막혔는지를 적습니다.</p>
+            <a class="btn-link" href="#/posts">관련 글 보기</a>
+          </article>
+          <article class="topic-card">
+            <h3>AI 개발</h3>
+            <p>API, 에이전트, 프롬프트 등 AI를 활용해 개발한 과정과 결과를 기록합니다.</p>
+            <a class="btn-link" href="#/posts">관련 글 보기</a>
+          </article>
+          <article class="topic-card">
+            <h3>업무 자동화</h3>
+            <p>반복되는 업무에 AI를 적용한 사례와 절약한 시간, 한계를 정리합니다.</p>
+            <a class="btn-link" href="#/posts">관련 글 보기</a>
+          </article>
+          <article class="topic-card">
+            <h3>개발 경력 이야기</h3>
+            <p>20년 경력의 개발자가 보는 AI의 가능성과 한계, 그리고 달라지지 않는 원칙을 이야기합니다.</p>
+            <a class="btn-link" href="#/posts">관련 글 보기</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="home-section" aria-labelledby="ai-principles-title">
+        <h2 id="ai-principles-title">글을 쓰는 원칙</h2>
+        <ul>
+          <li>직접 해 보지 않은 것은 해 봤다고 쓰지 않습니다.</li>
+          <li>확인한 사실과 제 의견을 구분해서 적습니다.</li>
+          <li>도구의 버전과 확인한 날짜를 함께 적습니다.</li>
+          <li>잘 안 된 경험도 숨기지 않고 남깁니다.</li>
+        </ul>
+      </section>
+
+      <section class="home-section" aria-labelledby="ai-refs-title">
+        <h2 id="ai-refs-title">참고 자료</h2>
+        <!-- 링크 형식: <a href="https://..." target="_blank" rel="noopener noreferrer">자료 제목</a> (최대 10개) -->
+        <ul class="ref-list">
+          <li>[작성 필요: 자료 제목] — [작성 필요: 한 줄 설명]</li>
+          <li>[작성 필요: 자료 제목] — [작성 필요: 한 줄 설명]</li>
+        </ul>
+      </section>
+    </section>
+
+    <!-- P1. 글 목록 -->
+    <section class="page" id="page-posts" hidden>
+      <h1>글 목록</h1>
+      <div class="filter-row">
+        <span class="filter-label" id="category-filter-label">카테고리</span>
+        <div id="category-filter" role="group" aria-labelledby="category-filter-label"></div>
+      </div>
+      <p id="posts-loading">불러오는 중...</p>
+      <ul id="post-list" class="post-list"></ul>
+      <p id="posts-empty" class="empty-message" hidden>아직 작성한 글이 없습니다. <a href="#/write">글 쓰기</a></p>
+      <p id="posts-filter-empty" class="empty-message" hidden>이 카테고리에 작성한 글이 없습니다.</p>
+    </section>
+
+    <!-- P3. 글 보기 -->
+    <section class="page" id="page-post" hidden>
+      <article class="post-view">
+        <header class="post-header">
+          <span id="post-category" class="badge"></span>
+          <h1 id="post-title"></h1>
+          <time id="post-date"></time>
+        </header>
+        <div id="post-body" class="markdown-body"></div>
+        <div class="button-row">
+          <a id="post-edit-btn" class="btn btn-secondary" href="#/posts">수정</a>
+          <button id="post-delete-btn" class="btn btn-danger" type="button">삭제</button>
+          <a id="post-back-btn" class="btn btn-secondary" href="#/posts">목록으로</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- P2/P4. 글 쓰기·수정 -->
+    <section class="page" id="page-form" hidden>
+      <h1 id="form-heading">글 쓰기</h1>
+      <form id="post-form" novalidate>
+        <div class="field">
+          <label for="field-title">제목</label>
+          <input id="field-title" class="input" type="text" placeholder="제목을 입력해 주세요 (100자 이내)" autocomplete="off">
+          <p id="err-title" class="field-error" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="field-date">날짜</label>
+          <input id="field-date" class="input" type="date">
+          <p id="err-date" class="field-error" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="field-category">카테고리</label>
+          <div class="field-inline">
+            <select id="field-category" class="input"></select>
+            <a id="manage-categories-link" href="#/settings">카테고리 관리</a>
+          </div>
+          <p id="err-category" class="field-error" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="field-content">본문</label>
+          <textarea id="field-content" placeholder="마크다운으로 작성할 수 있습니다 (5,000자 이내)"></textarea>
+          <p id="err-content" class="field-error" role="alert"></p>
+        </div>
+        <p id="form-error" class="field-error" role="alert"></p>
+        <div class="button-row">
+          <button id="form-submit" class="btn btn-primary" type="submit">저장</button>
+          <button id="form-cancel" class="btn btn-secondary" type="button">취소</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- P6. 설정 -->
+    <section class="page" id="page-settings" hidden>
+      <h1>설정</h1>
+      <section class="settings-section" aria-labelledby="settings-category-title">
+        <h2 id="settings-category-title">카테고리 관리</h2>
+        <p>글을 쓸 때 고를 카테고리를 만들고 관리합니다. 카테고리는 최대 20개까지 만들 수 있습니다.</p>
+        <form id="category-form" novalidate>
+          <div class="field">
+            <label for="category-name">새 카테고리 이름</label>
+            <div class="field-inline">
+              <input id="category-name" class="input" type="text" placeholder="카테고리 이름 (20자 이내)" autocomplete="off">
+              <button id="category-add-btn" class="btn btn-primary" type="submit">추가</button>
+            </div>
+            <p id="err-category-name" class="field-error" role="alert"></p>
+          </div>
+        </form>
+        <p class="note">'미분류'는 기본 항목이라 수정하거나 삭제할 수 없습니다.</p>
+        <ul id="category-list" class="category-list"></ul>
+        <p id="category-empty" class="empty-message" hidden>만들어 둔 카테고리가 없습니다.</p>
+        <p id="settings-error" class="field-error" role="alert"></p>
+      </section>
+    </section>
+
+    <!-- P5. 없는 주소 -->
+    <!-- P9. 로그인 (글쓴이 전용, Google 계정) -->
+    <section class="page" id="page-login" hidden>
+      <h1>로그인</h1>
+      <p>글쓴이만 글을 쓰고 관리할 수 있습니다. Google 계정으로 로그인해 주세요.</p>
+      <p id="err-login" class="field-error" role="alert"></p>
+      <div class="button-row">
+        <button id="google-login-btn" class="btn btn-primary" type="button">Google로 로그인</button>
+      </div>
+    </section>
+
+    <section class="page" id="page-notfound" hidden>
+      <h1>페이지를 찾을 수 없습니다.</h1>
+      <p>주소가 잘못되었거나 삭제된 글일 수 있습니다.</p>
+      <div class="button-row">
+        <a class="btn btn-secondary" href="#/">소개로 가기</a>
+        <a class="btn btn-secondary" href="#/posts">목록으로</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="footer-year"></span> [작성 필요: 이름 또는 닉네임]. 모든 글의 저작권은 작성자에게 있습니다.</p>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

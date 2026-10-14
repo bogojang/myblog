@@ -1,0 +1,75 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------- 재사용 함수 ----------
+
+    // 글쓴이 본인 계정(UID)만 쓸 수 있음. UID는 비밀값이 아니며, 다른 계정이 생겨도 쓰기는 막힘
+    function isOwner() {
+      return request.auth != null && request.auth.uid in ['kxTRg9pTThdPBZ2wgDYSebyP0z33'];
+    }
+
+    // 글 필드 검증 (createdAt 제외한 공통 부분)
+    function validPostFields() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['title', 'date', 'content', 'categoryId', 'createdAt', 'updatedAt'])
+        && d.keys().hasAll(['title', 'date', 'content', 'categoryId', 'createdAt', 'updatedAt'])
+        && d.title is string && d.title.size() >= 1 && d.title.size() <= 100
+        && d.content is string && d.content.size() >= 1 && d.content.size() <= 5000
+        && d.date is string && d.date.matches('^\\d{4}-\\d{2}-\\d{2}$')
+        && d.categoryId is string && d.categoryId.size() <= 20   // 빈 문자열 = 미분류
+        && d.createdAt is timestamp
+        && d.updatedAt is timestamp
+        && d.updatedAt == request.time;
+    }
+
+    // 카테고리 필드 검증 (공통 부분)
+    function validCategoryFields() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['name', 'createdAt', 'updatedAt'])
+        && d.keys().hasAll(['name', 'createdAt', 'updatedAt'])
+        && d.name is string && d.name.size() >= 1 && d.name.size() <= 20
+        && d.createdAt is timestamp
+        && d.updatedAt is timestamp
+        && d.updatedAt == request.time;
+    }
+
+    // 생성: 두 시각 모두 서버 시각
+    function validPostCreate() {
+      return validPostFields() && request.resource.data.createdAt == request.time;
+    }
+    function validCategoryCreate() {
+      return validCategoryFields() && request.resource.data.createdAt == request.time;
+    }
+
+    // 수정: createdAt은 기존 값 그대로
+    function validPostUpdate() {
+      return validPostFields() && request.resource.data.createdAt == resource.data.createdAt;
+    }
+    function validCategoryUpdate() {
+      return validCategoryFields() && request.resource.data.createdAt == resource.data.createdAt;
+    }
+
+    // ---------- 컬렉션 ----------
+
+    match /posts/{postId} {
+      allow get, list: if true;
+      allow create: if isOwner() && validPostCreate();
+      allow update: if isOwner() && validPostUpdate();
+      allow delete: if isOwner();
+    }
+
+    match /categories/{categoryId} {
+      allow get, list: if true;
+      allow create: if isOwner() && validCategoryCreate();
+      allow update: if isOwner() && validCategoryUpdate();
+      allow delete: if isOwner();
+    }
+
+    // 그 외 모든 경로는 거부 (기본값이지만 명시)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
